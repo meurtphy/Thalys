@@ -1,0 +1,260 @@
+/* GLOBAL STYLES */
+body {
+  background: linear-gradient(145deg, #e9eef5, #f4f7fc);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2d3d;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+h1, h2, h5 {
+  font-weight: 700;
+  color: #002C5F;
+}
+
+.container {
+  padding-bottom: 40px;
+}
+
+/* HEADER EFFECTS */
+.page-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  background-color: #005BAC;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* FORM CARDS */
+.card {
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: none;
+  background: #ffffff;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* BUTTONS */
+.btn-primary {
+  background-color: #005BAC;
+  border: none;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.btn-primary:hover {
+  background-color: #003f80;
+}
+
+.btn-outline-secondary {
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.btn-group .btn {
+  border-radius: 0 !important;
+}
+
+/* BADGES */
+.badge {
+  font-size: 0.85rem;
+  padding: 0.4em 0.75em;
+  border-radius: 0.5rem;
+}
+
+/* TABLES */
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.table thead th {
+  background-color: #002C5F;
+  color: white;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f4f8;
+}
+
+/* CHART & IMAGE */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  margin-top: 60px;
+  color: #888;
+  font-size: 0.9rem;
+}
+/* Hero immersive background */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(135deg, #002C5F, #005BAC);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Glow animated gradient circle */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(0,91,172,0.6), transparent 70%);
+  top: -200px;
+  left: -200px;
+  filter: blur(120px);
+  z-index: 0;
+  animation: pulse 6s ease-in-out infinite;
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section a {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  animation: slideFade 1.2s ease-in-out;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  animation: slideFade 1.6s ease-in-out;
+}
+
+.hero-section .btn-primary {
+  font-size: 1.1rem;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  animation: slideFade 2s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 0.8; }
+}
+
+@keyframes slideFade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Hero ultra immersif */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  background: radial-gradient(circle at 20% 30%, #0a0f1c, #001632);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  color: white;
+  z-index: 1;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: conic-gradient(from 90deg at 50% 50%, #003e87, #001b45, #004c8a, #002e63, #003e87);
+  animation: rotateBg 20s linear infinite;
+  opacity: 0.08;
+  z-index: 0;
+}
+
+@keyframes rotateBg {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hero-section h1 {
+  font-size: 3.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 91, 172, 0.5);
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.3rem;
+  color: #e2e2e2;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-in;
+}
+
+.hero-section .btn-primary {
+  font-size: 1.1rem;
+  padding: 0.8rem 2.2rem;
+  border-radius: 40px;
+  background: linear-gradient(to right, #0071c2, #004ca0);
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 113, 194, 0.5);
+  transition: all 0.3s ease;
+}
+
+.hero-section .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 113, 194, 0.8);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

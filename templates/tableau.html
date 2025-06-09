@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Données remontées – Thalys</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center page-title">Tableau des remontées</h1>
+
+    <!-- Filtres par statut -->
+    <div class="mb-4 text-center">
+        <div class="btn-group" role="group" aria-label="Filtres">
+            <a href="/tableau" class="btn btn-outline-primary {% if not statut %}active{% endif %}">Tous</a>
+            <a href="/tableau?statut=ouvert" class="btn btn-outline-primary {% if statut == 'ouvert' %}active{% endif %}">Ouverts</a>
+            <a href="/tableau?statut=résolu" class="btn btn-outline-primary {% if statut == 'résolu' %}active{% endif %}">Résolus</a>
+        </div>
+    </div>
+
+    <!-- Graphe intégré -->
+    {% if graph_url %}
+    <div class="mb-4 text-center">
+        <h5>Répartition des types de remontées</h5>
+        <img src="{{ graph_url }}" alt="Graphique des types">
+    </div>
+    {% endif %}
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Poste</th>
+                <th>Type</th>
+                <th>Message</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ligne in donnees %}
+            <tr>
+                <td>{{ ligne[0] }}</td>
+                <td>{{ ligne[1] }}</td>
+                <td>{{ ligne[2] }}</td>
+                <td>{{ ligne[3] }}</td>
+                <td>
+                    {% if ligne[4] == 'résolu' %}
+                        <span class="badge bg-success">Résolu</span>
+                    {% else %}
+                        <span class="badge bg-warning text-dark">Ouvert</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="/resolve/{{ ligne[0] }}" class="btn btn-sm btn-success">Résolu</a>
+                    <a href="/delete/{{ ligne[0] }}" class="btn btn-sm btn-danger">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="d-grid mt-4">
+        <a href="/" class="btn btn-primary">← Retour au formulaire</a>
+    </div>
+</div>
+
+</body>
+</html>
