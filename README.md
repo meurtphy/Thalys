@@ -1,6 +1,7 @@
+
 # Thalys – Carnet de Bord Digital pour Atelier Industriel
 
-Ce projet a été réalisé dans le cadre d’une candidature à un poste en transformation digitale chez Thales (site de Thonon-les-Bains).  
+Ce projet a été réalisé dans le cadre d’une candidature à un poste en transformation digitale chez Thales (site de Thonon-les-Bains).
 Il propose une solution simple et humaine pour collecter, visualiser et exploiter les retours terrain d’un atelier industriel, dans une logique d’amélioration continue.
 
 ---
@@ -103,3 +104,6 @@ Interface multi-utilisateur (en option)
 yaml
 Copier
 Modifier
+=======
+# Thalys
+
